@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Book;
 use App\Models\Type;
+use App\Models\Technology;
 
 class BookTableSeeder extends Seeder
 {
