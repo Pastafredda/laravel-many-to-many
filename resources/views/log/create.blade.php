@@ -55,12 +55,3 @@
 
     </form>
 @endsection
-
-{{--
-code
-title
-author
-price
-plot
-editor
-is_available --}}
