@@ -22,7 +22,7 @@ return new class extends Migration
             $table -> unsignedinteger('price');
             $table -> text('plot');
             $table -> string('editor')-> nullable();
-            $table -> boolean('is_available') -> default(true);
+            $table->string('is_available');
 
             $table->timestamps();
         });

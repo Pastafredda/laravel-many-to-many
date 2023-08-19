@@ -30,10 +30,16 @@
         <br>
         <input type="text" name="editor" id="editor">
         <br>
-        {{-- <label for="is_available">Disponibilità</label>
+        <label for="is_available">Disponibilità</label>
         <br>
-        <input type="text" name="is_available" id="is_available">
-        <br> --}}
+        <input type="radio" name="is_available" id="is_available_yes" value="si">
+        <label for="is_available_yes">Si</label>
+
+        <input type="radio" name="is_available" id="is_available_no" value="no">
+        <label for="is_available_no">No</label>
+        <br>
+        <label for="type_id"></label>
+
         <label for="type_id"></label>
 
         <select name="type_id" id="type_id">

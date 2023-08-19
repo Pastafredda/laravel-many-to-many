@@ -23,7 +23,8 @@ class BookFactory extends Factory
             "price" => fake() ->numberBetween(0, 50000),
             "plot" => fake() ->paragraph(1, true),
             "editor" => fake() ->words(3, true),
-            "is_available" => fake() ->boolean()
+            'is_available' => fake() ->randomElement(['si', 'no']),
+
         ];
     }
 }

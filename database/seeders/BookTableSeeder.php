@@ -24,6 +24,7 @@ class BookTableSeeder extends Seeder
 
             $book -> type_id = $type -> id;
             $book -> save();
+
         }
     }
 }
