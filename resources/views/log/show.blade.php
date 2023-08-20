@@ -30,4 +30,10 @@
         @method('DELETE')
         <input class="btn btn-primary " type="submit" value="DELETE">
     </form>
+
+    <form class="d-inline" method="POST" action="{{ route('picture-delete', $book->id) }}">
+        @csrf
+        @method('DELETE')
+        <input class="btn btn-primary " type="submit" value="DELETE PICTURE">
+    </form>
 @endsection

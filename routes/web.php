@@ -54,6 +54,10 @@ Route ::delete('/delete/{id}',[LogController :: class, 'delete'])
 ->middleware(['auth', 'verified'])
 ->name('delete');
 
+Route:: delete('/delete/{id}/picture',[LogController :: class, 'deletePicture'])
+->middleware(['auth', 'verified'])
+->name('picture-delete');
+
 
 Route::get('/create', [LogController :: class, 'create'])
 ->middleware(['auth', 'verified'])

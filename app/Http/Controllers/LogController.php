@@ -74,4 +74,15 @@ class LogController extends Controller
         $book ->delete();
         return redirect()-> route('guest.index');
     }
+
+    public function deletePicture($id){
+        $book = Book :: FindOrFail($id);
+        if($book -> main_picture){
+            $oldImgPath =$book -> main_picture;
+            Storage::delete($oldImgPath);
+        }
+        $book -> main_picture = null;
+        $book->save();
+        return redirect()-> route('log.show', $book -> id);
+    }
 }
