@@ -2,10 +2,21 @@
 
 @section('content')
     <h1>inserisci un nuovo libro</h1>
-    <form action="{{ route('log.update', $book->id) }}" method="POST">
+    <form action="{{ route('log.update', $book->id) }}" method="POST" enctype="multipart/form-data">
 
         @csrf
         @method('PUT')
+        <div>
+            @if ($book->main_picture)
+                <img src="{{ asset('storage/' . $book->main_picture) }}" width="200px" alt="">
+            @else
+                Immagine non disponibile
+            @endif
+        </div>
+        <label for="main_picture"></label>
+        <br>
+        <input type="file" name="main_picture" id="main_picture">
+        <br>
         <label for="code">Codice</label>
         <br>
         <input type="text" name="code" id="code" value="{{ $book->code }}">

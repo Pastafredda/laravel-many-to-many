@@ -23,6 +23,7 @@ return new class extends Migration
             $table -> text('plot');
             $table -> string('editor')-> nullable();
             $table->string('is_available');
+            $table ->string('main_picture') -> nullable();
 
             $table->timestamps();
         });

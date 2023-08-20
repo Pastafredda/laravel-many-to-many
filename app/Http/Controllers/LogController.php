@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 use App\Models\Book;
 use App\Models\Type;
 use App\Models\Technology;
@@ -26,6 +28,8 @@ class LogController extends Controller
     public function store(Request $request){
         $data= $request ->all();
 
+        $img_path = Storage:: put('uploads',$data['main_picture']);
+        $data['main_picture'] =$img_path;
         $book  = Book :: create($data);
         $book-> technologies() -> attach(($data['technology']));
 

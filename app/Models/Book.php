@@ -17,6 +17,7 @@ class Book extends Model
         "plot",
         "editor",
         "is_available",
+        "main_picture",
 
         "type_id"
     ];

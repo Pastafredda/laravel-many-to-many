@@ -2,6 +2,13 @@
 
 @section('content')
     <a href="{{ route('log.edit', $book->id) }}">Modifica libro</a>
+    <div>
+        @if ($book->main_picture)
+            <img src="{{ asset('storage/' . $book->main_picture) }}" width="200px" alt="">
+        @else
+            Immagine non disponibile
+        @endif
+    </div>
     <ul class="list-unstyled">
         <li>titolo: <b>{{ $book->title }}</b></li>
         <li>autore: {{ $book->author }}</li>
