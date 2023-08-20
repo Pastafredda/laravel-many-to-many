@@ -48,13 +48,23 @@ class LogController extends Controller
         $data= $request ->all();
         // dd($data);
         $book = Book :: FindOrFail($id);
-        $book -> update($data);
+
         if (array_key_exists('technology', $data)) {
             $book-> technologies() -> sync(($data['technology']));
         } else {
             $book->technologies()->detach();
         }
 
+        if(!array_key_exists('main_picture', $data)){
+            $data['main_picture'] = $book -> main_picture;
+        }else{
+            if($book -> main_picture){
+                $oldImgPath =$book -> main_picture;
+                Storage::delete($oldImgPath);
+            }
+            $data['main_picture'] = Storage::put('uploads',$data['main_picture']);
+        }
+        $book -> update($data);
         return redirect()-> route('log.show', $book -> id);
     }
 
