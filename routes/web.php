@@ -32,15 +32,28 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/', [GuestController :: class, 'index'])
-    ->name('guest.index');
+->name('guest.index');
 
 Route::get('/log/show/{id}', [LogController :: class, 'show'])
-    ->middleware(['auth', 'verified'])
-    ->name('log.show');
+->middleware(['auth', 'verified'])
+->name('log.show');
 
 Route::post('/store', [LogController :: class, 'store'])
 ->middleware(['auth', 'verified'])
 ->name('log.store');
+
+Route ::get('/edit/{id}', [LogController :: class, 'edit'])
+->middleware(['auth', 'verified'])
+->name('log.edit');
+
+Route ::put('/update/{id}', [LogController :: class, 'update'])
+->middleware(['auth', 'verified'])
+->name('log.update');
+
+Route ::delete('/delete/{id}',[LogController :: class, 'delete'])
+->middleware(['auth', 'verified'])
+->name('delete');
+
 
 Route::get('/create', [LogController :: class, 'create'])
 ->middleware(['auth', 'verified'])
